@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>IntX</id>
+    <version>$version$</version>
+    <title>IntX</title>
+    <authors>Andriy Kozachuk</authors>
+    <owners>Andriy Kozachuk</owners>
+    <licenseUrl>http://intx.codeplex.com/license</licenseUrl>
+    <projectUrl>http://intx.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>IntX is an arbitrary precision integers class written in pure C# with fast - about O(N * log N) - multiplication/division algorithms implementation. Runs on .NET 2.0+.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright (c) 2005-2011, Andriy Kozachuk</copyright>
+    <tags>biginteger numeric fht</tags>
+  </metadata>
+</package>
