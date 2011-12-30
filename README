@@ -1,3 +1,0 @@
-IntX is an arbitrary precision integers library written in pure C# with fast - about O(N * log N) - multiplication/division algorithms implementation. It provides all the basic arithmetic operations on integers, comparing, bitwise shifting etc. It also allows parsing numbers in different bases and converting them to string, also in any base. The advantage of this library is fast multiplication, division and from base/to base conversion algorithms - all the fast versions of the algorithms are based on fast multiplication of big integers using Fast Hartley Transform which runs for O(N * log N * log log N) time instead of classic O(N^2).
-
-Pick it up at NuGet: http://nuget.org/packages/IntX
