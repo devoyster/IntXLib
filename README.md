@@ -97,7 +97,7 @@ I have no plans to further develop this library -- I'm just sharing it with the 
 System.Numerics.BigInteger in .NET 4.0
 --------------------------------------
 
-`System.Numerics.BigInteger` class was introduced in .NET 4.0 so I was interested in performance of this solution. I did some tests and it appears that `BigInteger` has performance in general comparable with IntX on standard operations but starts losing when FHT comes into play (when multiplying really big integers, for example).
+`System.Numerics.BigInteger` class was introduced in .NET 4.0 so I was interested in performance of this solution. I did some tests ([grab test code from GitHub](https://github.com/devoyster/Oyster.Examples/tree/master/Oyster.Examples.IntXTest)) and it appears that `BigInteger` has performance in general comparable with IntX on standard operations but starts losing when FHT comes into play (when multiplying really big integers, for example).
 
 So internally `System.Numerics.BigInteger` seems to use standard arbitrary arithmetic algorithms and I am not worrying about IntX library since, due to its use of FHT, it can be times faster for really big integers.
 
