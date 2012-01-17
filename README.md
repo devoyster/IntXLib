@@ -26,7 +26,7 @@ Here is the sample of code which uses IntX and calculates 42 in power 1048576 (w
 
     using System;
     using System.Diagnostics;
-    using Oyster.Math;
+    using IntXLib;
 
     namespace IntxTestApp
     {
@@ -55,7 +55,7 @@ First `Calc()` call uses fast multiplication implementation (which is default), 
 Another example is factorial calculation:
 
     using System;
-    using Oyster.Math;
+    using IntXLib;
  
     namespace IntxTestApp
     {
