@@ -49,18 +49,14 @@ namespace IntXLib
 		/// <exception cref="ArgumentOutOfRangeException"><paramref name="mode" /> is out of range.</exception>
 		static public IParser GetParser(ParseMode mode)
 		{
-			// Check value
-			if (!Enum.IsDefined(typeof(ParseMode), mode))
-			{
-				throw new ArgumentOutOfRangeException("mode");
-			}
-
 			switch (mode)
 			{
 				case ParseMode.Fast:
 					return FastParser;
-				default:
+				case ParseMode.Classic:
 					return ClassicParser;
+				default:
+					throw new ArgumentOutOfRangeException("mode");
 			}
 		}
 

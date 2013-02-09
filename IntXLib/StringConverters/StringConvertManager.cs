@@ -49,18 +49,14 @@ namespace IntXLib
 		/// <exception cref="ArgumentOutOfRangeException"><paramref name="mode" /> is out of range.</exception>
 		static public IStringConverter GetStringConverter(ToStringMode mode)
 		{
-			// Check value
-			if (!Enum.IsDefined(typeof(ToStringMode), mode))
-			{
-				throw new ArgumentOutOfRangeException("mode");
-			}
-
 			switch (mode)
 			{
 				case ToStringMode.Fast:
 					return FastStringConverter;
-				default:
+				case ToStringMode.Classic:
 					return ClassicStringConverter;
+				default:
+					throw new ArgumentOutOfRangeException("mode");
 			}
 		}
 

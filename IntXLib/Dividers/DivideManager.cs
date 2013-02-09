@@ -46,18 +46,14 @@ namespace IntXLib
 		/// <exception cref="ArgumentOutOfRangeException"><paramref name="mode" /> is out of range.</exception>
 		static public IDivider GetDivider(DivideMode mode)
 		{
-			// Check value
-			if (!Enum.IsDefined(typeof(DivideMode), mode))
-			{
-				throw new ArgumentOutOfRangeException("mode");
-			}
-
 			switch (mode)
 			{
 				case DivideMode.AutoNewton:
 					return AutoNewtonDivider;
-				default:
+				case DivideMode.Classic:
 					return ClassicDivider;
+				default:
+					throw new ArgumentOutOfRangeException("mode");
 			}
 		}
 

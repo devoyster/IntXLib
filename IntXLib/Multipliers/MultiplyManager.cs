@@ -46,18 +46,14 @@ namespace IntXLib
 		/// <exception cref="ArgumentOutOfRangeException"><paramref name="mode" /> is out of range.</exception>
 		static public IMultiplier GetMultiplier(MultiplyMode mode)
 		{
-			// Check value
-			if (!Enum.IsDefined(typeof(MultiplyMode), mode))
-			{
-				throw new ArgumentOutOfRangeException("mode");
-			}
-
 			switch (mode)
 			{
 				case MultiplyMode.AutoFht:
 					return AutoFhtMultiplier;
-				default:
+				case MultiplyMode.Classic:
 					return ClassicMultiplier;
+				default:
+					throw new ArgumentOutOfRangeException("mode");
 			}
 		}
 

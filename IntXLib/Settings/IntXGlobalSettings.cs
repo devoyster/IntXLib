@@ -1,5 +1,3 @@
-using System;
-
 namespace IntXLib
 {
 	/// <summary>
@@ -30,16 +28,7 @@ namespace IntXLib
 		public MultiplyMode MultiplyMode
 		{
 			get { return _multiplyMode; }
-			set
-			{
-				// Check value
-				if (!Enum.IsDefined(typeof(MultiplyMode), value))
-				{
-					throw new ArgumentOutOfRangeException("value");
-				}
-
-				_multiplyMode = value;
-			}
+			set { _multiplyMode = value; }
 		}
 
 		/// <summary>
@@ -49,16 +38,7 @@ namespace IntXLib
 		public DivideMode DivideMode
 		{
 			get { return _divideMode; }
-			set
-			{
-				// Check value
-				if (!Enum.IsDefined(typeof(DivideMode), value))
-				{
-					throw new ArgumentOutOfRangeException("value");
-				}
-
-				_divideMode = value;
-			}
+			set { _divideMode = value; }
 		}
 
 		/// <summary>
@@ -68,16 +48,7 @@ namespace IntXLib
 		public ParseMode ParseMode
 		{
 			get { return _parseMode; }
-			set
-			{
-				// Check value
-				if (!Enum.IsDefined(typeof(ParseMode), value))
-				{
-					throw new ArgumentOutOfRangeException("value");
-				}
-
-				_parseMode = value;
-			}
+			set { _parseMode = value; }
 		}
 
 		/// <summary>
@@ -87,16 +58,7 @@ namespace IntXLib
 		public ToStringMode ToStringMode
 		{
 			get { return _toStringMode; }
-			set
-			{
-				// Check value
-				if (!Enum.IsDefined(typeof(ToStringMode), value))
-				{
-					throw new ArgumentOutOfRangeException("value");
-				}
-
-				_toStringMode = value;
-			}
+			set { _toStringMode = value; }
 		}
 
 		/// <summary>

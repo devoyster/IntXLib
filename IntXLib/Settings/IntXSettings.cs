@@ -1,5 +1,3 @@
-using System;
-
 namespace IntXLib
 {
 	/// <summary>
@@ -34,16 +32,7 @@ namespace IntXLib
 		public ToStringMode ToStringMode
 		{
 			get { return _toStringMode; }
-			set
-			{
-				// Check value
-				if (!Enum.IsDefined(typeof(ToStringMode), value))
-				{
-					throw new ArgumentOutOfRangeException("value");
-				}
-
-				_toStringMode = value;
-			}
+			set { _toStringMode = value; }
 		}
 
 		/// <summary>
