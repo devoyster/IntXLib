@@ -106,6 +106,9 @@
     <Compile Include="AddOpTest.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MultiThreadingTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PerformanceTest.cs" />
     <Compile Include="CustomAlphabetTest.cs" />
     <Compile Include="ExplicitConvertOpTest.cs" />

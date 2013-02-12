@@ -349,7 +349,7 @@ namespace IntXLib
 				else
 				{
 					// If new result length is smaller then original length we shouldn't lose any digits
-					if (newLength < intX._length)
+					if (newLength < (intX._length - fullDigits))
 					{
 						newLength++;
 					}
