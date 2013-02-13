@@ -24,58 +24,62 @@ Code Example
 
 Here is the sample of code which uses IntX and calculates 42 in power 1048576 (which is 2^20):
 
-    using System;
-    using System.Diagnostics;
-    using IntXLib;
+```c#
+using System;
+using System.Diagnostics;
+using IntXLib;
 
-    namespace IntxTestApp
-    {
-        class Program
-        {
-            static void Calc()
-            {
-                Stopwatch sw = Stopwatch.StartNew();
-                IntX.Pow(42, 1 << 20);
-                sw.Stop();
-                Console.WriteLine("{0} ms", sw.ElapsedMilliseconds);
-            }
+namespace IntxTestApp
+{
+	class Program
+	{
+		static void Calc()
+		{
+			Stopwatch sw = Stopwatch.StartNew();
+			IntX.Pow(42, 1 << 20);
+			sw.Stop();
+			Console.WriteLine("{0} ms", sw.ElapsedMilliseconds);
+		}
 
-            static void Main()
-            {
-                Calc();
+		static void Main()
+		{
+			Calc();
 
-                IntX.GlobalSettings.MultiplyMode = MultiplyMode.Classic;
-                Calc();
-            }
-        }
-    }
+			IntX.GlobalSettings.MultiplyMode = MultiplyMode.Classic;
+			Calc();
+		}
+	}
+}
+```
 
 First `Calc()` call uses fast multiplication implementation (which is default), second -- classic one. On my machine (Win XP Pro SP2, P4 2.8 GHz, 2 GB RAM) first call is **70 times** faster than the second one (1 second against 68 seconds). Resulting number has 1,702,101 digits.
 
 Another example is factorial calculation:
 
-    using System;
-    using IntXLib;
- 
-    namespace IntxTestApp
-    {
-        class Program
-        {
-            static IntX Factorial(IntX n)
-            {
-                if (n < 0)
-                {
-                    throw new ArgumentException("Can't calculate factorial for negative number.", "n");
-                }
-                return n == 0 ? 1 : n * Factorial(n - 1);
-            }
+```c#
+using System;
+using IntXLib;
 
-            static void Main()
-            {
-                Console.WriteLine(Factorial(10000));
-            }
-        }
-    }
+namespace IntxTestApp
+{
+	class Program
+	{
+		static IntX Factorial(IntX n)
+		{
+			if (n < 0)
+			{
+				throw new ArgumentException("Can't calculate factorial for negative number.", "n");
+			}
+			return n == 0 ? 1 : n * Factorial(n - 1);
+		}
+
+		static void Main()
+		{
+			Console.WriteLine(Factorial(10000));
+		}
+	}
+}
+```
 
 As you can see, IntX implements all the standard arithmetic operators so its usage is transparent for developer -- like if you're working with usual integer.
 
