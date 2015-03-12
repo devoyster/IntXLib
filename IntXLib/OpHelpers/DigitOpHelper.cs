@@ -399,6 +399,30 @@ namespace IntXLib
 			}
 		}
 
+		/// <summary>
+		/// Performs bitwise XOR for two big integers.
+		/// </summary>
+		/// <param name="digits1">First big integer digits.</param>
+		/// <param name="length1">First big integer length.</param>
+		/// <param name="digits2">Second big integer digits.</param>
+		/// <param name="length2">Second big integer length.</param>
+		/// <param name="digitsRes">Resulting big integer digits.</param>
+		/// <returns>Resulting big integer length.</returns>
+		static unsafe public uint ExclusiveOr(uint[] digits1, uint length1, uint[] digits2, uint length2, uint[] digitsRes)
+		{
+			fixed (uint* digitsPtr1 = digits1, digitsPtr2 = digits2, digitsResPtr = digitsRes)
+			{
+				for (uint i = 0; i < length2; i++)
+				{
+					digitsResPtr[i] = digitsPtr1[i] ^ digitsPtr2[i];
+				}
+
+				DigitHelper.DigitsBlockCopy(digitsPtr1 + length2, digitsResPtr + length2, length1 - length2);
+
+				return DigitHelper.GetRealDigitsLength(digitsResPtr, length1);
+			}
+		}
+
 		#endregion Bitwise operations
 	}
 }

@@ -457,6 +457,56 @@ namespace IntXLib
 			return newInt;
 		}
 
+		/// <summary>
+		/// Performs bitwise XOR for two big integers.
+		/// </summary>
+		/// <param name="int1">First big integer.</param>
+		/// <param name="int2">Second big integer.</param>
+		/// <returns>Resulting big integer.</returns>
+		static public IntX ExclusiveOr(IntX int1, IntX int2)
+		{
+			// Exceptions
+			if (ReferenceEquals(int1, null))
+			{
+				throw new ArgumentNullException("int1", Strings.CantBeNull);
+			}
+			if (ReferenceEquals(int2, null))
+			{
+				throw new ArgumentNullException("int2", Strings.CantBeNull);
+			}
+
+			// Process zero values in special way
+			if (int1._length == 0)
+			{
+				return new IntX(int2);
+			}
+			if (int2._length == 0)
+			{
+				return new IntX(int1);
+			}
+
+			// Determine big int with lower length
+			IntX smallerInt;
+			IntX biggerInt;
+			DigitHelper.GetMinMaxLengthObjects(int1, int2, out smallerInt, out biggerInt);
+
+			// Create new big int object of needed length
+			IntX newInt = new IntX(biggerInt._length, int1._negative ^ int2._negative);
+
+			// Do actual operation
+			newInt._length = DigitOpHelper.ExclusiveOr(
+				biggerInt._digits,
+				biggerInt._length,
+				smallerInt._digits,
+				smallerInt._length,
+				newInt._digits);
+
+			// Normalization may be needed
+			newInt.TryNormalize();
+
+			return newInt;
+		}
+
 		#endregion Bitwise operations
 	}
 }
