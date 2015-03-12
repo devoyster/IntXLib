@@ -276,6 +276,14 @@ namespace IntXLib
 			get { return _settings; }
 		}
 
+		/// <summary>
+		/// Gets flag indicating if big integer is odd.
+		/// </summary>
+		public bool IsOdd
+		{
+			get { return _length > 0 && (_digits[0] & 1) == 1; }
+		}
+
 		#endregion Public properties
 
 		#region Operators
