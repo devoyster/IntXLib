@@ -412,6 +412,51 @@ namespace IntXLib
 			return newInt;
 		}
 
+		/// <summary>
+		/// Performs bitwise AND for two big integers.
+		/// </summary>
+		/// <param name="int1">First big integer.</param>
+		/// <param name="int2">Second big integer.</param>
+		/// <returns>Resulting big integer.</returns>
+		static public IntX BitwiseAnd(IntX int1, IntX int2)
+		{
+			// Exceptions
+			if (ReferenceEquals(int1, null))
+			{
+				throw new ArgumentNullException("int1", Strings.CantBeNull);
+			}
+			if (ReferenceEquals(int2, null))
+			{
+				throw new ArgumentNullException("int2", Strings.CantBeNull);
+			}
+
+			// Process zero values in special way
+			if (int1._length == 0 || int2._length == 0)
+			{
+				return new IntX();
+			}
+
+			// Determine big int with lower length
+			IntX smallerInt;
+			IntX biggerInt;
+			DigitHelper.GetMinMaxLengthObjects(int1, int2, out smallerInt, out biggerInt);
+
+			// Create new big int object of needed length
+			IntX newInt = new IntX(smallerInt._length, int1._negative & int2._negative);
+
+			// Do actual operation
+			newInt._length = DigitOpHelper.BitwiseAnd(
+				biggerInt._digits,
+				smallerInt._digits,
+				smallerInt._length,
+				newInt._digits);
+
+			// Normalization may be needed
+			newInt.TryNormalize();
+
+			return newInt;
+		}
+
 		#endregion Bitwise operations
 	}
 }

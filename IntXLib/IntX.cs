@@ -832,6 +832,17 @@ namespace IntXLib
 			return OpHelper.BitwiseOr(int1, int2);
 		}
 
+		/// <summary>
+		/// Performs bitwise AND for two big integers.
+		/// </summary>
+		/// <param name="int1">First big integer.</param>
+		/// <param name="int2">Second big integer.</param>
+		/// <returns>Resulting big integer.</returns>
+		static public IntX operator &(IntX int1, IntX int2)
+		{
+			return OpHelper.BitwiseAnd(int1, int2);
+		}
+
 		#endregion Bitwise operations
 
 		#region Conversion operators

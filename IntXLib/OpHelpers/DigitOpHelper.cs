@@ -378,6 +378,27 @@ namespace IntXLib
 			}
 		}
 
+		/// <summary>
+		/// Performs bitwise AND for two big integers.
+		/// </summary>
+		/// <param name="digits1">First big integer digits.</param>
+		/// <param name="digits2">Second big integer digits.</param>
+		/// <param name="length">Shorter big integer length.</param>
+		/// <param name="digitsRes">Resulting big integer digits.</param>
+		/// <returns>Resulting big integer length.</returns>
+		static unsafe public uint BitwiseAnd(uint[] digits1, uint[] digits2, uint length, uint[] digitsRes)
+		{
+			fixed (uint* digitsPtr1 = digits1, digitsPtr2 = digits2, digitsResPtr = digitsRes)
+			{
+				for (uint i = 0; i < length; i++)
+				{
+					digitsResPtr[i] = digitsPtr1[i] & digitsPtr2[i];
+				}
+
+				return DigitHelper.GetRealDigitsLength(digitsResPtr, length);
+			}
+		}
+
 		#endregion Bitwise operations
 	}
 }
