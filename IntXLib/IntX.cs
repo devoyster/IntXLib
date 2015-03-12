@@ -854,6 +854,16 @@ namespace IntXLib
 			return OpHelper.ExclusiveOr(int1, int2);
 		}
 
+		/// <summary>
+		/// Performs bitwise NOT for big integer.
+		/// </summary>
+		/// <param name="value">Big integer.</param>
+		/// <returns>Resulting big integer.</returns>
+		static public IntX operator ~(IntX value)
+		{
+			return OpHelper.OnesComplement(value);
+		}
+
 		#endregion Bitwise operations
 
 		#region Conversion operators

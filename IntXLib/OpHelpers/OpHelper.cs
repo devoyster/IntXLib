@@ -507,6 +507,40 @@ namespace IntXLib
 			return newInt;
 		}
 
+		/// <summary>
+		/// Performs bitwise NOT for big integer.
+		/// </summary>
+		/// <param name="value">Big integer.</param>
+		/// <returns>Resulting big integer.</returns>
+		static public IntX OnesComplement(IntX value)
+		{
+			// Exceptions
+			if (ReferenceEquals(value, null))
+			{
+				throw new ArgumentNullException("value", Strings.CantBeNull);
+			}
+
+			// Process zero values in special way
+			if (value._length == 0)
+			{
+				return new IntX();
+			}
+
+			// Create new big int object of needed length
+			IntX newInt = new IntX(value._length, !value._negative);
+
+			// Do actual operation
+			newInt._length = DigitOpHelper.OnesComplement(
+				value._digits,
+				value._length,
+				newInt._digits);
+
+			// Normalization may be needed
+			newInt.TryNormalize();
+
+			return newInt;
+		}
+
 		#endregion Bitwise operations
 	}
 }

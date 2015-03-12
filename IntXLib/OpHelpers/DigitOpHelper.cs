@@ -423,6 +423,26 @@ namespace IntXLib
 			}
 		}
 
+		/// <summary>
+		/// Performs bitwise NOT for big integer.
+		/// </summary>
+		/// <param name="digits">Big integer digits.</param>
+		/// <param name="length">Big integer length.</param>
+		/// <param name="digitsRes">Resulting big integer digits.</param>
+		/// <returns>Resulting big integer length.</returns>
+		static unsafe public uint OnesComplement(uint[] digits, uint length, uint[] digitsRes)
+		{
+			fixed (uint* digitsPtr = digits, digitsResPtr = digitsRes)
+			{
+				for (uint i = 0; i < length; i++)
+				{
+					digitsResPtr[i] = ~digitsPtr[i];
+				}
+
+				return DigitHelper.GetRealDigitsLength(digitsResPtr, length);
+			}
+		}
+
 		#endregion Bitwise operations
 	}
 }
