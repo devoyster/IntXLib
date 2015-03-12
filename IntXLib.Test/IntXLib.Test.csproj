@@ -106,6 +106,7 @@
     <Compile Include="AddOpTest.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BitwiseOrOpTest.cs" />
     <Compile Include="MultiThreadingTest.cs">
       <SubType>Code</SubType>
     </Compile>
