@@ -10,8 +10,8 @@
     <projectUrl>http://intx.codeplex.com/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>IntX is an arbitrary precision integers class written in pure C# with fast - about O(N * log N) - multiplication/division algorithms implementation. Runs on .NET 2.0+.</description>
-    <releaseNotes>Fixed uninitialized memory usage issue. Improved performance for operations with small numbers.</releaseNotes>
-    <copyright>Copyright (c) 2005-2013, Andriy Kozachuk</copyright>
+    <releaseNotes>Added bitwise operations and is odd/even flag support.</releaseNotes>
+    <copyright>Copyright (c) 2005-2015, Andriy Kozachuk</copyright>
     <tags>biginteger numeric fht</tags>
   </metadata>
   <files>

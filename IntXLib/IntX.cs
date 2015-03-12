@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2005-2013, Andriy Kozachuk
+Copyright (c) 2005-2015, Andriy Kozachuk
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,

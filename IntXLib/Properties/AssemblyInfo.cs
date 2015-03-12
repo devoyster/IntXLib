@@ -7,6 +7,6 @@ using System.Reflection;
 [assembly: AssemblyDescription("Big integers class")]
 [assembly: AssemblyCompany("Oyster")]
 [assembly: AssemblyProduct("IntX")]
-[assembly: AssemblyCopyright("(c) 2005-2013 Andriy Kozachuk")]
+[assembly: AssemblyCopyright("(c) 2005-2015 Andriy Kozachuk")]
 
 [assembly: AssemblyVersion("1.0.0.0")]
